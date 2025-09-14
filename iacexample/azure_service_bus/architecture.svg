@@ -1,0 +1,75 @@
+<!--
+Azure Service Bus Enterprise Architecture Diagram (Clear & Structured)
+-->
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: bold 26px sans-serif; }
+    .label { font: 16px sans-serif; }
+    .resource { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; }
+    .subresource { fill: #fffde7; stroke: #fbc02d; stroke-width: 2; }
+    .identity { fill: #e8f5e9; stroke: #388e3c; stroke-width: 2; }
+    .backend { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; }
+    .arrow { stroke: #616161; stroke-width: 2; marker-end: url(#arrowhead); }
+    .group { font: bold 18px sans-serif; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#616161" />
+    </marker>
+  </defs>
+  <!-- Title -->
+  <text x="180" y="40" class="title">Azure Service Bus Enterprise Architecture</text>
+
+  <!-- Resource Group -->
+  <rect x="40" y="70" width="820" height="500" class="resource" />
+  <text x="50" y="100" class="group">Resource Group: project1-rg</text>
+
+  <!-- Service Bus Namespace -->
+  <rect x="120" y="130" width="660" height="120" class="resource" />
+  <text x="140" y="160" class="group">Service Bus Namespace: project1-sb (Standard, Managed Identity)</text>
+
+  <!-- Managed Identity -->
+  <rect x="140" y="190" width="200" height="40" class="identity" />
+  <text x="150" y="215" class="label">Managed Identity</text>
+
+  <!-- Topics Section -->
+  <rect x="140" y="250" width="200" height="80" class="subresource" />
+  <text x="150" y="275" class="group">Topics</text>
+  <text x="150" y="295" class="label">Count: var.topic_count</text>
+  <text x="150" y="315" class="label">Prefix: var.topic_name_prefix</text>
+
+  <!-- Queues Section -->
+  <rect x="370" y="250" width="200" height="80" class="subresource" />
+  <text x="380" y="275" class="group">Queues</text>
+  <text x="380" y="295" class="label">Count: var.queue_count</text>
+  <text x="380" y="315" class="label">Prefix: var.queue_name_prefix</text>
+
+  <!-- Subscriptions Section -->
+  <rect x="600" y="250" width="180" height="80" class="subresource" />
+  <text x="610" y="275" class="group">Subscriptions</text>
+  <text x="610" y="295" class="label">Count: var.subscription_count</text>
+  <text x="610" y="315" class="label">Prefix: var.subscription_name_prefix</text>
+
+  <!-- Remote State Backend -->
+  <rect x="370" y="370" width="200" height="60" class="backend" />
+  <text x="380" y="400" class="group">Remote State Backend</text>
+  <text x="380" y="420" class="label">Azure Blob Storage</text>
+
+  <!-- Arrows -->
+  <line x1="240" y1="230" x2="240" y2="250" class="arrow" />
+  <line x1="470" y1="230" x2="470" y2="250" class="arrow" />
+  <line x1="690" y1="230" x2="690" y2="250" class="arrow" />
+  <line x1="470" y1="330" x2="470" y2="370" class="arrow" />
+
+  <!-- Legend -->
+  <rect x="700" y="450" width="140" height="120" fill="#fff" stroke="#616161" stroke-width="1" />
+  <text x="710" y="470" class="label">Legend:</text>
+  <rect x="710" y="480" width="20" height="20" class="resource" />
+  <text x="735" y="495" class="label">Resource</text>
+  <rect x="710" y="510" width="20" height="20" class="subresource" />
+  <text x="735" y="525" class="label">Subresource</text>
+  <rect x="710" y="540" width="20" height="20" class="identity" />
+  <text x="735" y="555" class="label">Managed Identity</text>
+  <rect x="710" y="570" width="20" height="20" class="backend" />
+  <text x="735" y="585" class="label">Remote Backend</text>
+</svg>
